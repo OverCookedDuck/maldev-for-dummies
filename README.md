@@ -28,13 +28,14 @@ To get started with malware development, you will need a dev machine so that you
 - **Nim lang**: Follow the [download instructions](https://nim-lang.org/install.html). [Choosenim](https://github.com/dom96/choosenim) is a convenient utility that can be used to automate the installation process.
 - **Golang** (thanks to @nodauf for the PR): Follow the [download instructions](https://go.dev/doc/install).
 - **Rust**: [Rustup](https://www.rust-lang.org/tools/install) can be used to install Rust along with the required toolchains. 
+- **Zig**: Follow the [download instructions](https://ziglang.org/download/).
 
 Don't forget to disable Windows Defender or add the appropriate exclusions, so your hard work doesn't get quarantined! Later on, we can test on a separate machine with defensive controls like AV enabled.
 
 > ℹ **Note:** Oftentimes, package managers such as apt or software management tools such as Chocolatey or Winget (now built-in!) can be used to automate the installation and management of dependencies in a convenient and repeatable way. Be conscious however that versions in package managers may be a couple versions behind on the real thing! Below is an example command to install the mentioned tooling all at once.
 >
 > ```
->  choco install -y nim choosenim go rust vscode visualstudio2019community dotnetfx
+>  choco install -y nim choosenim go rust vscode visualstudio2019community dotnetfx zig
 > ```
 
 ## Compiling programs
@@ -97,6 +98,10 @@ If you want to optimize your build for size and strip debug information, you can
 cargo build --release
 ```
 
+### Zig
+
+Zig code (`.zig` files) is compiled using the `build-x` command, where `x` can be `exe`, `lib` or `obj`, for now we'll be using `build-exe`.
+
 ## Dependencies
 
 ### C#
@@ -122,6 +127,10 @@ go mod tidy
 ### Rust
 
 Some examples depend on the `windows-sys` crate to call the Windows API. Since we are using Cargo, packages will be automatically managed when you compile a test or release build.
+
+### Rust
+
+Zig is a relatively unmature language, the example solutions are completely self contained currently. Keep an eye out, this may change in the future.
 
 ## Resources
 

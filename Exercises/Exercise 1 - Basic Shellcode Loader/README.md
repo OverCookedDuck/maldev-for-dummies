@@ -15,7 +15,7 @@ This exercise is throwing you in the deep end by design! If you are lost, start 
 
 ### msfvenom
 
-With `msfvenom`, you can choose a 'format' (`-f`) to get the bytes as the right format for your language. It has formatters for most languages, which you can verify by running `--list formats`. Relevant formats here are `-f csharp`, `-f nim`, `-f go`, or `-f rust`, but there are others. Here's an example command which generates some shellcode you can use to pop a messagebox (works well as a proof-of-concept!):
+With `msfvenom`, you can choose a 'format' (`-f`) to get the bytes as the right format for your language. It has formatters for most languages, which you can verify by running `--list formats`. Relevant formats here are `-f csharp`, `-f nim`, `-f go`, or `-f rust`, but there are others, zig is currently unsupported. Here's an example command which generates some shellcode you can use to pop a messagebox (works well as a proof-of-concept!):
 
 ```bash
 msfvenom -p windows/x64/messagebox TEXT='Task failed successfully!' TITLE='Error!' -f nim
@@ -92,6 +92,24 @@ go generate syscall_windows.go
 
 These steps can be time-consuming, but meanwhile the windows package is updated you can find several of the API already implemented in the [go-windows](https://github.com/nodauf/go-windows) repository.
 
+### Zig tips
+
+The library `ziglang.org/documentation/master/std/#A;std:os.windows` is the official library of Golang that implements the Windows API. However, some unusual APIs that we are using in malware development may be missing from this library. For example, the `CreateRemoteThread` function is not available, for exercise 1 this may not be an issue, but it may come back later.
+
+To implement these functions in our code extern [`functions`](https://ziglang.org/documentation/0.11.0/#Functions) can be declared. The external function declaration should match the syntax set out by the Windows API, Fortunately this has been documented by [Microsoft](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createremotethread). This example would look like the following in zig:
+
+```zig
+extern "kernel32" fn CreateRemoteThread(
+  hProcess: HANDLE, 
+  lpThreadAttributes: ?LPSECURITY_ATTRIBUTES, 
+  dwStackSize: SIZE_T, 
+  lpStartAddress: LPTHREAD_START_ROUTINE, 
+  lpParameter: ?LPVOID, 
+  dwCreationFlags: DWORD, 
+  lpThreadId: ?LPDWORD) callconv(WINAPI) HANDLE;
+```
+
+These steps can be time-consuming, but meanwhile the windows package is updated you can find several of the Win32 API bindings implemented in the [zigwin32](https://github.com/marlersoft/zigwin32) repository.
 
 ## References
 
@@ -114,6 +132,10 @@ These steps can be time-consuming, but meanwhile the windows package is updated 
 
 - [Shellcode_Local_Inject](https://github.com/trickster0/OffensiveRust/blob/master/Shellcode_Local_inject/src/main.rs)
 - [Process_Injection_Self_EnumSystemGeoID](https://github.com/trickster0/OffensiveRust/blob/master/Process_Injection_Self_EnumSystemGeoID/src/main.rs)
+
+### Zig
+
+- [shellcode_bin](https://github.com/darkr4y/OffensiveZig/blob/main/src/shellcode_bin.zig)
 
 ## Solution
 

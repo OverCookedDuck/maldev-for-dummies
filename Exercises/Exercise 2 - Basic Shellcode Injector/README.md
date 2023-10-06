@@ -39,6 +39,10 @@ When designing malware that injects remotely, you need to be conscious about the
 - [Process_Injection_CreateRemoteThread](https://github.com/trickster0/OffensiveRust/blob/master/Process_Injection_CreateRemoteThread/src/main.rs)
 - [Shellcode_Runner_Classic-rs](https://github.com/memN0ps/arsenal-rs/blob/main/shellcode_runner_classic-rs/src/main.rs)
 
+### Rust
+
+- [suspended_thread_injection](https://github.com/darkr4y/OffensiveZig/blob/main/src/suspended_thread_injection.zig)
+
 ## Solution
 
 Example solutions are provided in the [solutions folder](solutions/). Keep in mind that there is no "right" answer, if you made it work that's a valid solution! 

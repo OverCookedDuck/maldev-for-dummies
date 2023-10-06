@@ -73,6 +73,11 @@ A viable alternative for testing against Windows Defender is [ThreatCheck](https
 - [Injection_Rc4_Loader](https://github.com/trickster0/OffensiveRust/blob/master/Injection_Rc4_Loader/src/main.rs)
 - [Injection_AES_Loader](https://github.com/trickster0/OffensiveRust/blob/master/Injection_AES_Loader/src/main.rs)
 
+### Zig
+
+- [obfuscator_rc4](https://github.com/Live-CTF/LiveCTF-DEFCON31/blob/539199a261a5246d4b1c89f518b4f0b5fc549736/qualifiers/challenges/cheese-and-crackers/challenge/generator/src/obfuscator_rc4.zig)
+- [obfuscator_salsa20](https://github.com/Live-CTF/LiveCTF-DEFCON31/blob/539199a261a5246d4b1c89f518b4f0b5fc549736/qualifiers/challenges/cheese-and-crackers/challenge/generator/src/obfuscator_salsa20.zig)
+
 ## Solution
 Example solutions are provided in the [solutions folder](solutions/). Keep in mind that there is no "right" answer, if you made it work that's a valid solution!
 

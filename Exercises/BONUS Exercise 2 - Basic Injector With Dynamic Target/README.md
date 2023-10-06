@@ -29,6 +29,11 @@ This is a programming exercise more than anything else. Adding functionality lik
 - [std::io::Stdin::read_line()](https://doc.rust-lang.org/stable/std/io/struct.Stdin.html#method.read_line)
 - [An example implementation of user input in srdi-rs/inject](https://github.com/trickster0/OffensiveRust/blob/master/memN0ps/srdi-rs/inject/src/main.rs#L115-L119)
 
+### Zig
+
+- [Command line argument parser library for Zig](https://github.com/Hejsil/zig-clap)
+- [command-line-arguments](https://zigbyexample.github.io/command_line_arguments)
+
 ## Solution
 
 Example solutions are provided in the [solutions folder](solutions/). Keep in mind that there is no "right" answer, if you made it work that's a valid solution! 
