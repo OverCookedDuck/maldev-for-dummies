@@ -1,4 +1,4 @@
-# Bonus Exercise 4 - Basic Enterprise Detection and Response Evasion
+# Bonus Exercise 3 - Basic Enterprise Detection and Response Evasion
 
 ## Description
 
